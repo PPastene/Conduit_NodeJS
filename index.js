@@ -21,7 +21,7 @@ const favouriteRoute = require('./routes/favourites')
 const app = express()
 
 //CORS
-app.use(cors({credentials: true, origin: true})) 
+app.use(cors({credentials: true, origin: '*'})) 
 
 
 
@@ -76,7 +76,8 @@ app.use(notFound)
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 8080
+const IP_ADDRESS = process.env.IP_ADDRESS || 'http://localhost'
 
-app.listen(PORT,() => {
-    console.log(`Server running on http://localhost:8080`);
+app.listen(PORT, IP_ADDRESS, () => {
+    console.log(`Server running on ${IP_ADDRESS}:${PORT}`);
 })
