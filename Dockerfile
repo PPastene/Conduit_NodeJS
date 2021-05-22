@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD npm start
+CMD sleep 5 && npm start
