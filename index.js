@@ -76,8 +76,7 @@ app.use(notFound)
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 8080
-const IP_ADDRESS = process.env.IP_ADDRESS || 'http://localhost'
 
-app.listen(PORT, IP_ADDRESS, () => {
-    console.log(`Server running on ${IP_ADDRESS}:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 })
