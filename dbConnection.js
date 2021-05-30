@@ -7,27 +7,37 @@ const {Sequelize} = require('sequelize')
     logging: false
 }); */
 
-
 //AMAZON RDS CONNECTION
 /* const sequelize = new Sequelize('conduit1',process.env.USER_NAME,process.env.PASSWORD,{
     dialect: 'mysql',
     host:process.env.DB_HOST,
     logging: false,
     port: 3306
-});
- */
-const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_PASS,{
+});*/
+
+// POSTGRESQL
+/* const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_PASS,{
     dialect: 'postgres',
     host: process.env.DB_HOST,
-    logging: false,
     port: process.env.DB_PORT,
-    /*dialectOptions: {
+    logging: false,
+    dialectOptions: {
         ssl: {
             require: true,
             rejectUnauthorized: false
         }
-    }*/
-});
+    }
+});*/
+
+const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_PASS,{
+    dialect: 'mariadb',
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    logging: false,
+    dialectOptions: {
+        //connectTimeout: 1000
+    }
+})
 
 const checkConnection =async () => {
     try {

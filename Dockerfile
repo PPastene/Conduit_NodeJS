@@ -4,7 +4,7 @@ WORKDIR /server
 
 COPY package.json .
 
-RUN apk add postgresql 
+RUN apk add mariadb-client postgresql 
 
 RUN npm install && npm cache clean --force
 
